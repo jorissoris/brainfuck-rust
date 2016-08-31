@@ -40,6 +40,10 @@ fn main() {
                 print!("{}", array[ptr] as char);
                 index += 1;
             }
+            ',' => {
+            	array[ptr] = std::io::stdin().bytes().next().and_then(|result| result.ok()).map(|byte| byte as u8).expect("YOU FAIL");
+            	index += 1;
+            }
             '[' => {
                 if array[ptr] > 0 {
                     index += 1;
